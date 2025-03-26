@@ -7,14 +7,46 @@ import './App.css'
 let localCompanies = ["LibertyMutual", "Klaviyo", "Fidelity", "Microsoft", "LinkedIn", "Chewy"];
 let remoteOnlyCompanies = ["AirBnB", "Pinterest"];
 
-let 
+let myFavoriteNumber = 7;
+let myLeastFavoriteNumber = 11;
+
+// in class work 
+const now = new Date();
+const hour = now.getHours();
+console.log('hour :>> ', hour)
+
+
+let timeOfDay; 
+
+if(hour <12){
+  timeOfDay = "Morning";
+} else if( hour <18 ){
+  timeOfDay = "Afternoon";
+} else if(hour<24){
+  timeOfDay = "Evening";
+}else {
+  console.log("It's the end of times")
+}
+
+const greeting = `Good ${timeOfDay}`; 
+
+const person = {
+  name: "Yusuf",
+  location:"San Fran",
+  yearJoined: "2025", 
+  favoriteActivities: ["sleeping", "movies", ""]
+
+}
 
 function App() {
   const [count, setCount] = useState(0)
 
   return (
     <>
-      {/* <div>
+    <Person/>
+
+
+       <div>
         <a href="https://vite.dev" target="_blank">
           <img src={viteLogo} className="logo" alt="Vite logo" />
         </a>
@@ -33,11 +65,11 @@ function App() {
       </div>
       <p className="read-the-docs">
         Click on the Vite and React logos to learn more
-      </p> */}
+      </p> 
 
       <div>
         <h1>Doing the Classwork</h1>
-
+        <div> {greeting} {person.name}</div>
         <div>Local Companies</div>
         <ul>
           {localCompanies.map(item =>(
@@ -62,3 +94,28 @@ function App() {
 }
 
 export default App
+
+
+function Person(){
+  return (
+    <div>
+        <p> 
+          {greeting} {person.name}
+        </p>
+        <p>
+          {person.name} joined 
+        </p>
+        <p>
+          <ul>
+            {person.favoriteActivities.map((activity) =>(
+              <li>{activity}</li>
+
+            ))}
+          </ul>
+        </p>
+
+
+      </div>
+  )
+    
+}
